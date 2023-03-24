@@ -1,0 +1,17 @@
+
+.about-us {
+    width: 100%;
+    height: calc(100vh - 10px);
+    background-image: url( aboutus.jpg);
+    background-size: cover;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    font-size: 20px;
+    line-height: 1.5;
+    color: rgb(21, 23, 24);
+}
+
+
+ 

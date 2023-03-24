@@ -1,0 +1,165 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  
+}
+
+body{
+
+  
+background-repeat: no-repeat;
+  --color-primary: #0d0e0e;
+  font-family: sans-serif;
+
+}
+
+.container{
+  width: 100%;
+  height: calc(100vh - 10px);
+  background-image: url(accou.jpg);
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+
+}
+
+
+.container .loginForm{
+  margin: 100px;
+}
+
+.container .loginForm form{
+  display: block;
+  width: 100%;
+  padding: 0.75rem;
+  box-sizing: border-box;
+  border-radius: var(--border-radius);
+  border: 1px solid #dddddd;
+  outline: none;
+  background: #eeeeee;
+  transition: logo512 0.2s, border-color 0.2s;
+}
+
+.container .loginForm form h4{
+  font-size: 30px;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.container .loginForm form label{
+  margin-bottom: 7px;
+}
+
+.container .loginForm form .textInput{
+  width: 100%;
+  height: 40px;
+  margin-bottom: 20px;
+  outline: none;
+  padding: 0px 10px;
+}
+
+.container .loginForm form .button{
+  width: 100%;
+  padding: 1rem 2rem;
+  font-weight: bold;
+  font-size: 1.1rem;
+  color: #d6efe4;
+  border: none;
+  border-radius: var(--border-radius);
+  outline: none;
+  cursor: pointer;
+  background: var(--color-primary);
+}
+
+.container .loginForm form .button:hover{
+  background-color: aliceblue;
+}
+footer{
+  position: relative;
+  width: 100%;
+  padding: 20px 10vw;
+  padding-bottom: 50px;
+  background: #383838;
+}
+
+.footer-content{
+  display: flex;
+  width: 80%;
+  justify-content: space-between;
+}
+
+.footer-content .logo{
+  height: 1000px;
+}
+
+.footer-ul-container{
+  width: 25%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.category{
+  width: 10px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 10px;
+  list-style: none;
+}
+
+.category-title{
+  grid-column: span 2;
+  text-transform: capitalize;
+  color: #fff;
+  font-size: 15px;
+  margin-bottom: 20px;
+}
+
+.category .footer-link{
+  text-decoration: none;
+  text-transform: capitalize;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.footer-link:hover{
+  color: #fff;
+}
+.footer-title, .info{
+  color: rgba(255, 255, 255, 0.75);
+  margin: 20px 0;
+  text-transform: capitalize;
+}
+
+.footer-title{
+  margin-top: 80px;
+  color: #fff;
+}
+
+.footer-social-container{
+  margin-top: 40px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.social-link{
+  color: #fff;
+  margin-left: 20px;
+  text-transform: capitalize;
+}
+
+.social-link:nth-child(1){
+  margin-left: 0;
+}
+
+.footer-credit{
+  width: 100%;
+  padding: 10px;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  text-align: center;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.2);
+}
