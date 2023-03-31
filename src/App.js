@@ -27,6 +27,7 @@ import NewUser from "./pages/Admin/newUser/NewUser";
 import ProductList from "./pages/productList/ProductList";
 import Products from "./pages/Products/Products";
 import NewProduct from "./pages/Admin/newProduct/NewProduct";
+import Admin from "./pages/Admin/src/Admin"
 
 
 function App() {
@@ -46,8 +47,8 @@ function App() {
       <Route path="/cart" element={<Cart />} />
       <Route path="/contact" element={<Contact />} />
         <Route path="/about" element={<About />} />
-        
-        <Route exact path="/admin" element={<Homes/>} />
+        <Route path="/admin/*" element={<Admin />} />
+
         <Route exact path="/users"element={<UserList />} />
           <Route exact path="/user/:userId" element={<User />} />
           <Route exact path="/newUser"element={<NewUser />} />

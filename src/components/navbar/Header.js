@@ -28,7 +28,7 @@ function Header() {
 </div>
       <a href="/product" className="nav-link">Shop</a>
       <a href="/account" className="nav-link">Account</a>
-      <a href=" /newUser" className="nav-link">Admin</a>
+      <a href=" /admin" className="nav-link">Admin</a>
               <li> <NavLink to="/cart">Cart</NavLink></li>
       <a href="/cart" className="nav-link">Cart</a>
       <a href="/about" className="nav-link">About Us</a>

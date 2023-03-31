@@ -1,40 +1,42 @@
 import "./userList.css";
-import { DataGrid } from "@material-ui/data-grid";
-import { DeleteOutline } from "@material-ui/icons";
+import { DataGrid } from "@mui/x-data-grid";
+import { DeleteOutline } from "@mui/icons-material";
 import { userRows } from "../../dummyData";
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import axios  from "axios";
 
 export default function UserList() {
-  const [data, setData] = useState(userRows);
+  
+  const [data, setData] = useState([]);
 
-  const handleDelete = (id) => {
+  const fetchData = async () => {
+    
+    const response = await axios.get("http://localhost:3001/getusers");
+    setData(response.data);
+    console.log(response.data);
+  };
+
+  useEffect(()=>{
+    fetchData() 
+  },[]);
+
+  const handleDelete = async (id) => {
+    axios.post(`http://localhost:3001/deleteUser/${id}`)
     setData(data.filter((item) => item.id !== id));
   };
   
   const columns = [
     { field: "id", headerName: "ID", width: 90 },
     {
-      field: "user",
+      field: "username",
       headerName: "User",
       width: 200,
-      renderCell: (params) => {
-        return (
-          <div className="userListUser">
-            <img className="userListImg" src={params.row.avatar} alt="" />
-            {params.row.username}
-          </div>
-        );
-      },
     },
     { field: "email", headerName: "Email", width: 200 },
+
     {
-      field: "status",
-      headerName: "Status",
-      width: 120,
-    },
-    {
-      field: "transaction",
+      field: "volume",
       headerName: "Transaction Volume",
       width: 160,
     },
@@ -45,9 +47,6 @@ export default function UserList() {
       renderCell: (params) => {
         return (
           <>
-            <Link to={"/user/" + params.row.id}>
-              <button className="userListEdit">Edit</button>
-            </Link>
             <DeleteOutline
               className="userListDelete"
               onClick={() => handleDelete(params.row.id)}

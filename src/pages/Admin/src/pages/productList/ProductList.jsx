@@ -1,12 +1,27 @@
 import "./productList.css";
-import { DataGrid } from "@material-ui/data-grid";
-import { DeleteOutline } from "@material-ui/icons";
+import { DataGrid } from "@mui/x-data-grid";
+import { DeleteOutline } from "@mui/icons-material";
 import { productRows } from "../../dummyData";
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import axios from "axios";
 
 export default function ProductList() {
-  const [data, setData] = useState(productRows);
+
+  const [data, setData] = useState([]);
+
+  const fetchData = async () => {
+    
+    const response = await axios.get("http://localhost:3001/getproducts");
+    setData(response.data);
+    console.log(response.data);
+  };
+
+  useEffect(()=>{
+    fetchData() 
+  },[]);
+
+  
 
   const handleDelete = (id) => {
     setData(data.filter((item) => item.id !== id));
@@ -17,22 +32,18 @@ export default function ProductList() {
     {
       field: "product",
       headerName: "Product",
-      width: 200,
+      width: 300,
       renderCell: (params) => {
         return (
           <div className="productListItem">
-            <img className="productListImg" src={params.row.img} alt="" />
+            <img className="productListImg" src={params.row.image} alt="" />
             {params.row.name}
           </div>
         );
       },
     },
-    { field: "stock", headerName: "Stock", width: 200 },
-    {
-      field: "status",
-      headerName: "Status",
-      width: 120,
-    },
+    { field: "stock", headerName: "Stock", width: 150 },
+    { field: "active", headerName: "Active", width: 90},
     {
       field: "price",
       headerName: "Price",
@@ -45,7 +56,7 @@ export default function ProductList() {
       renderCell: (params) => {
         return (
           <>
-            <Link to={"/product/" + params.row.id}>
+            <Link to={"/admin/product/" + params.row.id}>
               <button className="productListEdit">Edit</button>
             </Link>
             <DeleteOutline
@@ -59,13 +70,16 @@ export default function ProductList() {
   ];
 
   return (
+
     <div className="productList">
+      <Link to="/admin/newproduct">
+        <button className="productAddButton">Create</button>
+      </Link>
       <DataGrid
         rows={data}
         disableSelectionOnClick
         columns={columns}
         pageSize={8}
-        checkboxSelection
       />
     </div>
   );

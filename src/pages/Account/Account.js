@@ -38,7 +38,9 @@ function Account (){
         setLoginStatus(response.data.message);
     
       }else{
-        setLoginStatus(response.data[0].email);
+        window.localStorage.setItem('email', response.data.email)
+        window.localStorage.setItem('admin', response.data.admin)
+        setLoginStatus(response.data.email);
         window.location = "http://localhost:3000/account/product"
       }
     })

@@ -12,7 +12,7 @@ import {
   ChatBubbleOutline,
   WorkOutline,
   Report,
-} from "@material-ui/icons";
+} from "@mui/icons-material";
 import { Link } from "react-router-dom";
 
 export default function Sidebar() {
@@ -22,7 +22,7 @@ export default function Sidebar() {
         <div className="sbMenu">
           <h3 className="sbTitle">Dashboard</h3>
           <ul className="sbList">
-            <Link to="/" className="link">
+            <Link to="" className="link">
             <li className="sbListItem active">
               Home
             </li>
@@ -33,13 +33,13 @@ export default function Sidebar() {
         <div className="sbMenu">
           <h3 className="sbTitle">Quick Menu</h3>
           <ul className="sbList">
-            <Link to="/users" className="link">
+            <Link to="users" className="link">
               <li className="sbListItem">
                 <PermIdentity className="sbIcon" />
                 Users
               </li>
             </Link>
-            <Link to="/products" className="link">
+            <Link to="products" className="link">
               <li className="sbListItem">
                 <Storefront className="sbIcon" />
                 Products

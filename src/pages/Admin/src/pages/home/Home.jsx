@@ -9,9 +9,7 @@ export default function Home() {
     <div className="home">
       <FeaturedInfo />
       {/* */}
-      <div className="homeWidgets">
-                <Widget/>
-      </div>
+
     </div>
   );
 }
