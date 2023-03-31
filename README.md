@@ -1,3 +1,13 @@
+
+                                    Equip Footwear
+                                    
+
+The scope of the project is to develop a functioning e-commerce website for the company 'Equip Footwear’.
+
+ 
+Equip Footwear’ specialises in retailing footwear for the sports: football, running, hiking, tennis, and climbing.
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
