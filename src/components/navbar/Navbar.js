@@ -58,6 +58,7 @@ const Navbar = () => {
 </div>
 <li className="link-item"><a href="/about" className="link">About </a></li>
 <li className="link-item"><a href="/contact" className="link">Contact</a></li>
+<li className="link-item"><a href="/admin" className="link">Admin</a></li>
 <li> <NavLink className="link" to="/cart"> <FontAwesomeIcon icon={faCartShopping} /> </NavLink></li>
 <li> <NavLink className="link" to="/account"> <FontAwesomeIcon icon={faUser} /> </NavLink></li>
         

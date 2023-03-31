@@ -17,6 +17,8 @@ import Contact from "./pages/Contact/Contact.js";
 import Navbar from "./components/navbar/Navbar";
 import Footer from "./components/footer/Footer";
 import About from "./pages/About/About.js";
+import Admin from "./pages/Admin/src/Admin";
+
 function App() {
   return (
     <div className="App">
@@ -35,6 +37,7 @@ function App() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/about" element={<About />} />
         <Route path="/productpage1" element={<ProductPage1 />} />
+        <Route path="/admin/*" element={<Admin />} />
       </Routes>
       <Footer />
       
