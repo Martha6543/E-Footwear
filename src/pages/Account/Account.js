@@ -33,20 +33,21 @@ function Account (){
   const login = (e) => {
     e.preventDefault();
     Axios.post("http://localhost:3001/login", {
-      username: username,
+      email: email,
       password: password,
     }).then((response) => {
       if(response.data.message){
         setLoginStatus(response.data.message);
     
       }else{
-        setLoginStatus(response.data[0].email);
+        window.localStorage.setItem('email', response.data.email)
+        window.localStorage.setItem('employee', response.data.employee)
+        window.localStorage.setItem('admin', response.data.admin)
+        setLoginStatus(response.data.email);
         window.location = "http://localhost:3000/product"
       }
     })
   }
-
-
 
     return(<Fragment>
   

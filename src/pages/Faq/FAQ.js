@@ -1,13 +1,29 @@
 import React, { useState } from 'react';
-import Header from './Header';
-import FAQ from './FAQ';
+import "./faq.css";
+
+function FAQ ({faq, index, toggleFAQ}) {
+  return (
+    <div
+      className={"faq " + (faq.open ? 'open' : '')}
+      key={index}
+      onClick={() => toggleFAQ(index)}
+    >
+      <div className="faq-question">
+        {faq.question}
+      </div>
+      <div className="faq-answer">
+        {faq.answer}
+      </div>
+    </div>
+  );
+}
 
 function App () {
   const [faqs, setfaqs] = useState([
     {
       question: '1. When will my order be delivered?',
       answer: 'Most orders are delivered within 7 days. Delivery time depends on your location.',
-      open: true
+      open: false
     },
     {
       question: ' 2. How can I make the payment?',
@@ -74,10 +90,10 @@ function App () {
 
   return (
     <div className="App">
-      <Header />
+      
       <div className="faqs">
         {faqs.map((faq, i) => (
-          <FAQ faq={faq} index={i} toggleFAQ={toggleFAQ} />
+          <FAQ faq={faq} index={i} toggleFAQ={toggleFAQ} key={i} />
         ))}
       </div>
     </div>

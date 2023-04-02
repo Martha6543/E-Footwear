@@ -12,7 +12,7 @@ export default function UserList() {
 
   const fetchData = async () => {
     
-    const response = await axios.get("http://localhost:3001/getusers");
+    const response = await axios.get("http://localhost:3001/getdata");
     setData(response.data);
     console.log(response.data);
   };
@@ -27,7 +27,7 @@ export default function UserList() {
   };
   
   const columns = [
-    { field: "id", headerName: "ID", width: 90 },
+    { field: "userid", headerName: "ID", width: 90 },
     {
       field: "username",
       headerName: "User",
@@ -65,6 +65,7 @@ export default function UserList() {
         columns={columns}
         pageSize={8}
         checkboxSelection
+        getRowId = {(row) => row.userid}
       />
     </div>
   );

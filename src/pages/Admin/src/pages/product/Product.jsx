@@ -15,12 +15,11 @@ export default function Product() {
     const [image, setImage] = useState("");
     const [name, setName] = useState("");
     const [stock, setStock] = useState(0);
-    const [price, setPrice] = useState("");
-    const [active, setActive] = useState(true);
+
 
     const fetchData = async () => {
 
-        const response = await axios.get(`http://localhost:3001/product/${productId}`);
+        const response = await axios.get(`http://localhost:3001/getdata/${productId}`);
         setData(response.data);
         console.log(response.data);
     };
@@ -31,9 +30,10 @@ export default function Product() {
 
     const handleClick = async (e) => {
         e.preventDefault()
-        await axios.post(`http://localhost:3001/updateProduct/${productId}`, {
-            image, name, stock, active, price: Number(price)
+        const response = await axios.post(`http://localhost:3001/updateProduct/${productId}`, {
+            image, name, stock
         })
+        setData({...data,stock})
     };
 
     return !data ? (<div></div>) : (
@@ -60,42 +60,38 @@ export default function Product() {
                             <span className="productInfoValue">{data.price}</span>
                         </div>
                         <div className="productInfoItem">
-                            <span className="productInfoKey">active:</span>
-                            <span className="productInfoValue">{String(data.active)}</span>
-                        </div>
-                        <div className="productInfoItem">
                             <span className="productInfoKey">stock:</span>
                             <span className="productInfoValue">{data.stock}</span>
                         </div>
                     </div>
                 </div>
             </div>
-            <div className="productBottom">
+            {!window.localStorage.getItem("employee") ? ("") :<div className="productBottom">
                 <form className="productForm">
                     <div className="productFormLeft">
-                        <label>Name</label>
-                        <input type="text" value={name} placeholder="Nike" onChange={e => setName(e.target.value)} />
+                        {/* <label>Name</label>
+                        <input type="text" value={name} placeholder="Nike" onChange={e => setName(e.target.value)} /> */}
                         <label>Stock</label>
                         <input type="text" value={stock} placeholder="45" onChange={e => setStock(Number(e.target.value))} />
-                        <label>Price</label>
+                        {/* <label>Price</label>
                         <input type="text" value={price} placeholder="99.99" onChange={e => setPrice(e.target.value)} />
                         <label>Active</label>
                         <select name="active" value={active} id="active" onChange={e => setActive(e.target.value === "true" ? true : false)} >
                             <option value="true">Yes</option>
                             <option value="false">No</option>
-                        </select>
+                        </select> */}
                     </div>
-                    <div className="productFormRight">
+                    {/* <div className="productFormRight">
                         <div className="productUpload">
                         <label>Image </label>
                         <input type="text" value={image} id="image" onChange={e => setImage(e.target.value)} />
                         <img src={data.image} alt="Shoes" className="productUploadImg"/>
-                    </div>
-                    </div>
+                        </div>
+                    </div> */}
                     <button className="productButton" onClick={handleClick}>Update</button>
 
                 </form>
-            </div>
+            </div>}
         </div>
     );
 }

@@ -18,6 +18,7 @@ import Navbar from "./components/navbar/Navbar";
 import Footer from "./components/footer/Footer";
 import About from "./pages/About/About.js";
 import Admin from "./pages/Admin/src/Admin";
+import Faq from "./pages/Faq/FAQ";
 
 function App() {
   return (
@@ -32,6 +33,7 @@ function App() {
       <Route path="/football" element={<Football />} />
       <Route path="/tennis" element={<Tennis />} />
       <Route path="/hiking" element={<Hiking />} />
+      <Route path="/faq" element={<Faq />} />
       <Route path="/account" element={<Account />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/contact" element={<Contact />} />

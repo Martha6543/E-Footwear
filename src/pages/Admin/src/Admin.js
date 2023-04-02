@@ -9,9 +9,11 @@ import NewUser from "./pages/newUser/NewUser";
 import ProductList from "./pages/productList/ProductList";
 import Product from "./pages/product/Product";
 import NewProduct from "./pages/newProduct/NewProduct";
+import OrderList from "./pages/orderList/orderList";
+import EditOrder from "./pages/editOrder/editOrder";
 
 function Admin() {
-  return !window.localStorage.getItem("admin") ? (<div className="container">Error: Not An Admin</div>):(
+  return window.localStorage.getItem("employee") !== '1' ? (<div className="container">Error: Not An Employee</div>):(
   
     <div>
       <Topbar />
@@ -25,6 +27,8 @@ function Admin() {
           <Route path="products" element={<ProductList />} />
           <Route path="product/:productId" element={<Product />} />
           <Route path="newproduct" element={<NewProduct />} />
+          <Route path="orders" element={<OrderList />} />
+          <Route path="editorder/:orderId" element={<EditOrder />} />
         </Routes>
       </div>
     </div>

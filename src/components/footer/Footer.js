@@ -7,7 +7,7 @@ function Footer() {
       <div className="footer__content">
       <div className="footer__column">
   <ul>
-    <li><a className="footer-link" href="#">FAQ</a></li>
+    <li><a className="footer-link" href="/faq">FAQ</a></li>
     <li><a className="footer-link" href="#">Sitemap</a></li>
     <li><a className="footer-link" href="#">Shipping</a></li>
     <li><a className="footer-link" href="#">Returns</a></li>

@@ -45,6 +45,12 @@ export default function Sidebar() {
                 Products
               </li>
             </Link>
+            <Link to="orders" className="link">
+              <li className="sbListItem">
+                <Storefront className="sbIcon" />
+                Orders
+              </li>
+            </Link>
             
           </ul>
         </div>
