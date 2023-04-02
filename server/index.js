@@ -7,13 +7,7 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
-var db = mysql.createConnection({
-    host : '127.0.0.1',
-    port     : '3306',
-    user     : 'root', 
-    password : 'Password21!',
-    database: "ecomreact"
-});
+
 app.get("/",(req,res)=>{
 
     res.send("hi")
