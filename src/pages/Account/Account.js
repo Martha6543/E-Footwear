@@ -15,7 +15,7 @@ function Account (){
 
   const register = (e) => {
     e.preventDefault();
-    Axios.post("/register", {
+    Axios.post("/api/register", {
       email: email,
       username: username,
       password: password,
@@ -32,7 +32,7 @@ function Account (){
 
   const login = (e) => {
     e.preventDefault();
-    Axios.post("/login", {
+    Axios.post("/api/login", {
       email: email,
       password: password,
     }).then((response) => {

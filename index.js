@@ -4,6 +4,12 @@ const cors = require("cors");
 
 const app = express();
 
+app.use(express.static('build'))
+
+const path = require("path")
+
+
+
 app.use(express.json());
 app.use(cors());
 
@@ -17,17 +23,17 @@ const pool = mysql.createPool({
     queueLimit: 0
 })
 
-app.get("/", (req, res) => {
+// app.get("/", (req, res) => {
 
-    res.send("hi")
-})
-app.get("/getdata", async (req, res) => {
+//     res.send("hi")
+// })
+app.get("/api/getdata", async (req, res) => {
     const sql = `select * from users `;
     const [result] = await pool.query(sql)
         res.send(result)
 })
 
-app.get("/getdataall", async (req, res) => {
+app.get("/api/getdataall", async (req, res) => {
     const sql = `select * from products `;
     const [result] = await pool.query(sql)
     
@@ -35,7 +41,7 @@ app.get("/getdataall", async (req, res) => {
 
 })
 
-app.get("/getorders", async (req, res) => {
+app.get("/api/getorders", async (req, res) => {
     const sql = `select * from orders `;
     const [result] = await pool.query(sql)
     
@@ -43,7 +49,7 @@ app.get("/getorders", async (req, res) => {
 
 })
 
-app.get("/getvalues/:catId", async (req, res) => {
+app.get("/api/getvalues/:catId", async (req, res) => {
     const id = req.params.catId
     const sql = `select * from products WHERE category = ${id}  `;
     const [result] = await pool.query(sql)
@@ -65,7 +71,7 @@ app.get("/getvalues/:catId", async (req, res) => {
 
 // })
 
-app.get("/getdata/:id", async (req, res) => {
+app.get("/api/getdata/:id", async (req, res) => {
     const id = req.params.id;
     let sql = `select * from products where id=${id}`;
     const [result] = await pool.query(sql)
@@ -117,7 +123,7 @@ app.get("/getdata/:id", async (req, res) => {
 // })
 
 
-app.get("/account/:user_id", async (req, res) => {
+app.get("/api/account/:user_id", async (req, res) => {
     const user_id = req.params.user_id;
     const sql = `select * from orders where user_id=${user_id} && orderstatus='order done'`;
     const [result] = await pool.query(sql)
@@ -126,7 +132,7 @@ app.get("/account/:user_id", async (req, res) => {
 
 })
 
-app.get("/myorder/:order_id", async (req, res) => {
+app.get("/api/myorder/:order_id", async (req, res) => {
     const order_id = req.params.order_id;
     let sql = `select * from orders where order_id=${order_id}`;
     const [result] = await pool.query(sql)
@@ -138,7 +144,7 @@ app.get("/myorder/:order_id", async (req, res) => {
 
 
 
-app.post('/register', async (req, res) => {
+app.post('/api/register', async (req, res) => {
     const email = req.body.email;
     const username = req.body.username;
     const password = req.body.password;
@@ -153,7 +159,7 @@ app.post('/register', async (req, res) => {
     }
 })
 
-app.post('/addproduct', async (req, res) => {
+app.post('/api/addproduct', async (req, res) => {
     const {name, description, price, stock, image} = req.body
     const sql = "INSERT INTO products (name, description, price, stock, image) VALUES (?, ?, ?, ?, ?)"
 
@@ -165,7 +171,7 @@ app.post('/addproduct', async (req, res) => {
 
 
 
-app.post('/updateproduct/:id', async (req, res) => {
+app.post('/api/updateproduct/:id', async (req, res) => {
     const id = req.params.id;
     const stock = req.body.stock;
     const sql = "UPDATE products SET stock = ? WHERE id = ?"
@@ -176,7 +182,7 @@ app.post('/updateproduct/:id', async (req, res) => {
 
 })
 
-app.post('/updateorder/:id', async (req, res) => {
+app.post('/api/updateorder/:id', async (req, res) => {
     const id = req.params.id;
     const status = req.body.status;
     const sql = "UPDATE orders SET orderstatus = ? WHERE orderid = ?"
@@ -187,7 +193,7 @@ app.post('/updateorder/:id', async (req, res) => {
 
 })
 
-app.post("/login", async (req, res) => {
+app.post("/api/login", async (req, res) => {
     const email = req.body.email;
     const password = req.body.password;
     const sql = "SELECT * FROM users WHERE email = ? AND password = ?"
@@ -203,6 +209,10 @@ app.post("/login", async (req, res) => {
         }
     // }
 })
+
+app.get('*', function(req, res) {
+    res.sendFile('index.html', {root: path.join(__dirname, '/build/')});
+  });
 
 app.listen(3001, () => {
     console.log("running backend server");

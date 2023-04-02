@@ -14,7 +14,7 @@ export default function OrderList() {
 
   const fetchData = async () => {
     
-    const response = await axios.get("/getorders");
+    const response = await axios.get("/api/getorders");
     const items = []
     response.data.forEach((item) => {
       if(!items.find((item2)=>item2.orderid === item.orderid)){

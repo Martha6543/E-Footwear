@@ -14,7 +14,7 @@ export default function EditOrder() {
 
     const handleClick = async (e) => {
         e.preventDefault()
-        const response = await axios.post(`/updateorder/${orderId}`, {
+        const response = await axios.post(`/api/updateorder/${orderId}`, {
             status
         })
     };

@@ -10,7 +10,7 @@ const Productlist = () => {
   const [data, setdata] = useState([]);
   const fetchData = async () => {
     
-    const response = await axios.get("/getdata/:id");
+    const response = await axios.get("/api/getdata/:id");
     setdata(response.data);
     console.log(data);
   };

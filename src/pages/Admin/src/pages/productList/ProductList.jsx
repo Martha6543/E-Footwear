@@ -12,7 +12,7 @@ export default function ProductList() {
 
   const fetchData = async () => {
     
-    const response = await axios.get("/getdataall");
+    const response = await axios.get("/api/getdataall");
     setData(response.data);
     console.log(response.data);
   };

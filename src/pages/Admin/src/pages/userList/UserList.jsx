@@ -12,7 +12,7 @@ export default function UserList() {
 
   const fetchData = async () => {
     
-    const response = await axios.get("/getdata");
+    const response = await axios.get("/api/getdata");
     setData(response.data);
     console.log(response.data);
   };
@@ -22,7 +22,7 @@ export default function UserList() {
   },[]);
 
   const handleDelete = async (id) => {
-    axios.post(`/deleteUser/${id}`)
+    axios.post(`/api/deleteUser/${id}`)
     setData(data.filter((item) => item.id !== id));
   };
   

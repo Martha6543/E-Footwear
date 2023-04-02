@@ -12,9 +12,9 @@ import { Cartcontext } from "../../context/Context";
 const Product = () => {
   const [data, setdata] = useState([]);
   const fetchData = async () => {
-    const response = await axios.get("/getdataall");
+    const response = await axios.get("/api/getdataall");
     setdata(response.data);
-    console.log(data);
+    console.log(response.data);
   };
   useEffect(() => {
     

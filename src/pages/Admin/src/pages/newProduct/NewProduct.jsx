@@ -12,7 +12,7 @@ export default function NewProduct() {
 
   const handleClick = async(e) => {
     e.preventDefault()
-    await axios.post("/addproduct", {
+    await axios.post("/api/addproduct", {
     image,name,stock,description,price: Number(price)
     })
   };

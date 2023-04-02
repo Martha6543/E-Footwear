@@ -19,7 +19,7 @@ export default function Product() {
 
     const fetchData = async () => {
 
-        const response = await axios.get(`/getdata/${productId}`);
+        const response = await axios.get(`/api/getdata/${productId}`);
         setData(response.data);
         console.log(response.data);
     };
@@ -30,7 +30,7 @@ export default function Product() {
 
     const handleClick = async (e) => {
         e.preventDefault()
-        const response = await axios.post(`/updateProduct/${productId}`, {
+        const response = await axios.post(`/api/updateProduct/${productId}`, {
             image, name, stock
         })
         setData({...data,stock})
