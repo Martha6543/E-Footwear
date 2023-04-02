@@ -15,7 +15,7 @@ import { Cartcontext } from "../../context/Context";
 const Product = () => {
   const [data, setdata] = useState([]);
   const fetchData = async () => {
-    const response = await axios.get("http://localhost:3001/getvalues/1");
+    const response = await axios.get("/getvalues/1");
     setdata(response.data);
     console.log(data);
   };

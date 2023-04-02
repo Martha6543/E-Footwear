@@ -12,7 +12,7 @@ const Productlist = () => {
   const [data, setdata] = useState([]);
   const fetchData = async () => {
     
-    const response = await axios.get("http://localhost:3001/getvalues/3");
+    const response = await axios.get("/getvalues/3");
     setdata(response.data);
     console.log(data);
   };

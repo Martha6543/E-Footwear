@@ -9,10 +9,10 @@ export default function NewProduct() {
   const [stock, setStock] = useState(0);
   const [price, setPrice] = useState("");
   const [description, setDesc] = useState("");
-  
+
   const handleClick = async(e) => {
     e.preventDefault()
-    await axios.post("http://localhost:3001/addproduct", {
+    await axios.post("/addproduct", {
     image,name,stock,description,price: Number(price)
     })
   };

@@ -12,7 +12,7 @@ import { Cartcontext } from "../../context/Context";
 const Product = () => {
   const [data, setdata] = useState([]);
   const fetchData = async () => {
-    const response = await axios.get("http://localhost:3001/getdataall");
+    const response = await axios.get("/getdataall");
     setdata(response.data);
     console.log(data);
   };

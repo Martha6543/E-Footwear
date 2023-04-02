@@ -15,7 +15,7 @@ function Account (){
 
   const register = (e) => {
     e.preventDefault();
-    Axios.post("http://localhost:3001/register", {
+    Axios.post("/register", {
       email: email,
       username: username,
       password: password,
@@ -32,7 +32,7 @@ function Account (){
 
   const login = (e) => {
     e.preventDefault();
-    Axios.post("http://localhost:3001/login", {
+    Axios.post("/login", {
       email: email,
       password: password,
     }).then((response) => {
@@ -44,7 +44,7 @@ function Account (){
         window.localStorage.setItem('employee', response.data.employee)
         window.localStorage.setItem('admin', response.data.admin)
         setLoginStatus(response.data.email);
-        window.location = "http://localhost:3000/product"
+        window.location = "/product"
       }
     })
   }

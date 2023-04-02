@@ -15,7 +15,7 @@ function Index() {
       </div>
       <div className="img">
       <a href='/product'>
-        <img src="home banner.png" alt="img" className="img-thumbnail rounded" />
+        <img src="HOMEBANNER.png" alt="img" className="img-thumbnail rounded" />
         </a>
       </div>
         </div>
