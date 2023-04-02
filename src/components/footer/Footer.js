@@ -1,5 +1,6 @@
 import React from 'react';
 import "./Footer.css";
+import { NavLink } from 'react-router-dom';
 
 function Footer() {
   return (
@@ -7,7 +8,7 @@ function Footer() {
       <div className="footer__content">
       <div className="footer__column">
   <ul>
-    <li><a className="footer-link" href="/faq">FAQ</a></li>
+    <li><NavLink className="footer-link" to="/faq">FAQ</NavLink></li>
     <li><a className="footer-link" href="#">Sitemap</a></li>
     <li><a className="footer-link" href="#">Shipping</a></li>
     <li><a className="footer-link" href="#">Returns</a></li>
@@ -15,8 +16,8 @@ function Footer() {
 </div>
 <div className="footer__column">
   <ul>
-    <li><a className="footer-link" href="/contact">Contact Us</a></li>
-    <li><a className="footer-link" href="/about">About Us</a></li>
+    <li><NavLink className="footer-link" to="/contact">Contact Us</NavLink></li>
+    <li><NavLink className="footer-link" to="/about">About Us</NavLink></li>
     
     <li><a className="footer-link" href="#">Privacy Policy</a></li>
     <li><a className="footer-link" href="#">Terms &amp; Conditions</a></li>

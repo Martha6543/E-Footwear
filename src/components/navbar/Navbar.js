@@ -9,8 +9,9 @@ import { faUser } from '@fortawesome/free-solid-svg-icons';
 
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { NavLink } from "react-router-dom";
+import { NavLink, Navigate, useNavigate } from "react-router-dom";
 const Navbar = () => {
+  const navigate = useNavigate()
   return (
 
 
@@ -42,10 +43,10 @@ const Navbar = () => {
 
 
 <ul className="links-container">
-<li className="link-item"><a href="/" className="link">Home</a></li>
-<li className="link-item"><a href="/product" className="link">Shop</a></li>
+<li> <NavLink className="link" to="/"> Home </NavLink></li>
+<li> <NavLink className="link" to="/product"> Shop </NavLink></li>
 <div className="dropdown">
-<select className="link" onChange={(e) => { window.location.href = e.target.value }}>
+<select className="link" onChange={(e) => { navigate(e.target.value) }}>
   <option value="">Categories</option>
   
   <option value="/climbing">Climbing</option>
@@ -56,9 +57,9 @@ const Navbar = () => {
 </select>
 
 </div>
-<li className="link-item"><a href="/about" className="link">About </a></li>
-<li className="link-item"><a href="/contact" className="link">Contact</a></li>
-<li className="link-item"><a href="/admin" className="link">Admin</a></li>
+<li> <NavLink className="link" to="/about"> About </NavLink></li>
+<li> <NavLink className="link" to="/contact"> Contact </NavLink></li>
+<li> <NavLink className="link" to="/admin"> Admin </NavLink></li>
 <li> <NavLink className="link" to="/cart"> <FontAwesomeIcon icon={faCartShopping} /> </NavLink></li>
 <li> <NavLink className="link" to="/account"> <FontAwesomeIcon icon={faUser} /> </NavLink></li>
         

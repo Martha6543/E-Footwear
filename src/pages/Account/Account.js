@@ -3,10 +3,12 @@ import React, {useState,Fragment} from "react";
 import "./Account.css";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 
 
 function Account (){
+  const navigate = useNavigate()
   const [email, setEmail] = useState("");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -44,7 +46,7 @@ function Account (){
         window.localStorage.setItem('employee', response.data.employee)
         window.localStorage.setItem('admin', response.data.admin)
         setLoginStatus(response.data.email);
-        window.location = "/product"
+        navigate("/product") 
       }
     })
   }

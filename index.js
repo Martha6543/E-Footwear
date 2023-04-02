@@ -15,8 +15,8 @@ app.use(cors());
 
 const pool = mysql.createPool({
     host: 'localhost',
-    user: 'root',
-    password: '12345',
+    user: 'root',       //TODO : insert username here
+    password: '12345', //TODO : insert password here
     database: 'cs4group3_db',
     waitForConnections: true,
     connectionLimit: 10,
