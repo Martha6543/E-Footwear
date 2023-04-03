@@ -3,12 +3,13 @@ import "./editOrder.css";
 import Chart from "../../components/chart/Chart"
 import { productData } from "../../dummyData"
 import { Publish } from "@mui/icons-material";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { useState, useEffect } from "react";
 
 export default function EditOrder() {
 
+    const navigate = useNavigate()
     const { orderId } = useParams()
     const [status, setStatus] = useState(0);
 
@@ -17,6 +18,7 @@ export default function EditOrder() {
         const response = await axios.post(`/api/updateorder/${orderId}`, {
             status
         })
+        navigate("/admin/orders")
     };
 
     return (

@@ -9,6 +9,8 @@ import {Link} from "react-router-dom";
 
 import { Cartcontext } from "../../context/Context";
 
+const statusmap = {0: "Male" , 1 : "Female", 2 : "Unisex"}
+
 const Product = () => {
   const [data, setdata] = useState([]);
   const fetchData = async () => {
@@ -32,16 +34,16 @@ const Product = () => {
         item.quantity = 1;
         
         return (
-          <div className="container mt-5">
+          <div className="container mt-3" key={index}>
           <div className="row">
-          <div className="card" key={index}>
+          <div className="card">
         
           <Link to="/productpage1"> <img src={item.image} alt="" className="img-thumbnail rounded" /></Link>
         
             <p>{item.title}</p>
-            <p>{item.descr}</p>
-            <p>{item.catagory}</p>
-            <p>{item.Stock}</p>
+            <p>{item.desc}</p>
+            <p>{statusmap[item.category]}</p>
+            <p>{item.stock}</p>
             <p className="lead mb-4">Price: £{item.price}</p>
             <button className="btn btn-primary mb-4" onClick={() => dispatch({ type: "ADD", payload: item })}>
               Add to cart
