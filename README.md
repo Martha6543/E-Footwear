@@ -22,7 +22,7 @@ Step 2.1: For full website functionality, type `npm build` and press enter.
 Step 3: Type `npm start` in the termal and press enter.
 
 
-Step 4: Open a second terminal in the same folder and type `node index.js`
+Step 4: Open a second terminal in the same folder and type `node index.js` and press enter
 
 
 Step 5: Open web browser and type `http://localhost:3000/` to begin browsing in a reduced view, or if using the command `npm build` use `http://localhost:3001/`
